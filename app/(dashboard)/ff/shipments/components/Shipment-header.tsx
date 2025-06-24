@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ShipmentData } from "../types";
 
 interface ShipmentHeaderProps {
@@ -20,7 +21,7 @@ export default function ShipmentHeader({ shipmentData }: ShipmentHeaderProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <img src="/icons/map.svg" alt="" />
+              <Image src="/icons/map.svg" alt="" width={24} height={24} />
               <span className="text-[#464255] font-medium">ORIGIN PORT</span>
             </div>
             <div className="text-[#1e1e1e] text-lg font-semibold">
@@ -30,7 +31,12 @@ export default function ShipmentHeader({ shipmentData }: ShipmentHeaderProps) {
 
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <img src="/icons/Destination.svg" alt="" />
+              <Image
+                src="/icons/Destination.svg"
+                alt=""
+                width={24}
+                height={24}
+              />
               <span className="text-[#464255] font-medium">
                 DESTINATION PORT
               </span>
@@ -42,7 +48,7 @@ export default function ShipmentHeader({ shipmentData }: ShipmentHeaderProps) {
 
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <img src="/icons/shipper.svg" alt="" />
+              <Image src="/icons/shipper.svg" alt="" width={24} height={24} />
               <span className="text-[#464255] font-medium">SHIPPER</span>
             </div>
             <div className="text-[#1e1e1e] text-lg font-semibold">
@@ -52,7 +58,12 @@ export default function ShipmentHeader({ shipmentData }: ShipmentHeaderProps) {
 
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <img src="/icons/profile-sharing.svg" alt="" />
+              <Image
+                src="/icons/profile-sharing.svg"
+                alt=""
+                width={24}
+                height={24}
+              />
               <span className="text-[#464255] font-medium">CONSIGNEE</span>
             </div>
             <div className="text-[#1e1e1e] text-lg font-semibold">
@@ -62,7 +73,7 @@ export default function ShipmentHeader({ shipmentData }: ShipmentHeaderProps) {
 
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <img src="/icons/info.svg" alt="" />
+              <Image src="/icons/info.svg" alt="" width={24} height={24} />
               <span className="text-[#464255] font-medium">BOOKING DATE</span>
             </div>
             <div className="text-[#1e1e1e] text-lg font-semibold">

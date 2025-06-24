@@ -38,3 +38,6 @@ export interface TimelineItemType {
   location: string;
   isLatest?: boolean;
 }
+
+export type TabType = "Invoices" | "Documents" | "Timeline" | "Overview";
+export type NavItemType = "Shipments" | "Quotes" | "Invoices";
