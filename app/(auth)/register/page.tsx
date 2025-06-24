@@ -140,11 +140,20 @@ export default function SignupPage() {
       setStep1Data(data);
 
       if (data.role === "freight_forwarder") {
-        // When moving to step 2, restore form data if it was saved from a previous visit
-        if (step2Data) {
-          step2Form.reset(step2Data);
-        }
-        setCurrentStep(2);
+        // When moving to step 2, restore form data if it exists, otherwise reset
+        step2Form.reset(
+          step2Data ?? {
+            company_name: "",
+            address: "",
+            country: "",
+            company_website: "",
+          }
+        );
+
+        // Small delay to ensure form is reset before transition
+        setTimeout(() => {
+          setCurrentStep(2);
+        }, 100);
         return;
       }
 
@@ -258,7 +267,7 @@ export default function SignupPage() {
           </CardTitle>
           <CardDescription className="text-center">
             {currentStep === 1
-              ? "Enter your information to get started on Ubuntu Africa Logistics"
+              ? "Enter your information to get started with LogiTrack"
               : "Please provide additional company information"}
           </CardDescription>
 

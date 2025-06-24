@@ -1,14 +1,12 @@
 "use client";
 
-import Image from "next/image";
-
 export default function ShipmentOverview() {
   return (
     <div className="grid grid-cols-3 gap-8">
       <div className="col-span-2">
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-4">
-            <Image src="/icons/info.svg" alt="" width={24} height={24} />
+            <img src="/icons/info.svg" alt="" />
             <h3 className="text-[#000000] text-lg">Commodity Info</h3>
           </div>
 
@@ -37,7 +35,7 @@ export default function ShipmentOverview() {
 
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <Image src="/icons/info.svg" alt="" width={24} height={24} />
+            <img src="/icons/info.svg" alt="" />
             <h3 className="text-[#000000] text-lg">Cargo Info</h3>
           </div>
 

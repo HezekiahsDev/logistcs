@@ -1,11 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import {
   mockTimelineData,
   shipmentData,
-  ShipmentData,
   vendorPaymentsData,
 } from "../lib/data";
-import { TimelineItemType } from "../types";
+import { TimelineItemType, ShipmentData } from "../types";
+
+// Define a type for vendor payments
+export type VendorPaymentType = {
+  id: string;
+  vendorName: string;
+  amount: number;
+  status: string;
+  date: string;
+};
 
 // Create an axios instance with default config
 const api = axios.create({
@@ -92,14 +101,20 @@ export const shipmentApi = {
   },
 
   // Get vendor payments
-  getVendorPayments: async (): Promise<any[]> => {
+  getVendorPayments: async (): Promise<VendorPaymentType[]> => {
     try {
       // In a real app, this would be an API call
       // const response = await api.get('/vendor-payments');
       // return response.data;
 
       // For now, return mock data
-      return vendorPaymentsData;
+      return vendorPaymentsData.map((item: any) => ({
+        id: item.id,
+        vendorName: item.vendorName,
+        amount: item.amount,
+        status: item.status,
+        date: item.date,
+      })) as VendorPaymentType[];
     } catch (error) {
       console.error("Error fetching vendor payments:", error);
       throw error;
@@ -107,13 +122,7 @@ export const shipmentApi = {
   },
 
   // Record a payment
-  recordPayment: async (paymentData: {
-    amount: number;
-    vendor: string;
-  }): Promise<{
-    success: boolean;
-    data: { amount: number; vendor: string };
-  }> => {
+  recordPayment: async (paymentData: any): Promise<any> => {
     try {
       // In a real app, this would be an API call
       // const response = await api.post('/payments', paymentData);
@@ -129,13 +138,7 @@ export const shipmentApi = {
   },
 
   // Make a payment
-  makePayment: async (paymentData: {
-    amount: number;
-    vendor: string;
-  }): Promise<{
-    success: boolean;
-    data: { amount: number; vendor: string };
-  }> => {
+  makePayment: async (paymentData: any): Promise<any> => {
     try {
       // In a real app, this would be an API call
       // const response = await api.post('/make-payment', paymentData);
@@ -154,7 +157,7 @@ export const shipmentApi = {
   updatePaymentStatus: async (
     paymentId: string,
     status: string
-  ): Promise<{ success: boolean; paymentId: string; status: string }> => {
+  ): Promise<any> => {
     try {
       // In a real app, this would be an API call
       // const response = await api.put(`/payments/${paymentId}`, { status });
@@ -170,9 +173,7 @@ export const shipmentApi = {
   },
 
   // Delete a payment
-  deletePayment: async (
-    paymentId: string
-  ): Promise<{ success: true; paymentId: string }> => {
+  deletePayment: async (paymentId: string): Promise<any> => {
     try {
       // In a real app, this would be an API call
       // const response = await api.delete(`/payments/${paymentId}`);

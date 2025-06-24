@@ -58,10 +58,7 @@ export default function WorkflowUI() {
     premium_support: false,
   });
 
-  const updateFormData = (
-    field: keyof WorkflowFormData,
-    value: string | boolean
-  ) => {
+  const updateFormData = (field: keyof WorkflowFormData, value: any) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 

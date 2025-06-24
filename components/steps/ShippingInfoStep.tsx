@@ -2,17 +2,7 @@
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
-interface ShippingInfoFormData {
-  originPort: string;
-  destinationPort: string;
-}
-
-interface ShippingInfoStepProps {
-  formData: ShippingInfoFormData;
-  setFormData: (formData: ShippingInfoFormData) => void;
-}
-
-const ShippingInfoStep = ({ formData, setFormData }: ShippingInfoStepProps) => {
+const ShippingInfoStep = ({ formData, setFormData }: any) => {
   return (
     <div className="grid gap-4">
       <div>

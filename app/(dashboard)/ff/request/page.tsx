@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,18 +30,7 @@ import MultiStepDialog from "./muilti-steps";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 
-interface Request {
-  id: number;
-  dateSent: string;
-  originPort: string;
-  destinationPort: string;
-  requester: string;
-  commodity: string;
-  shipmentType: string;
-  mode: string;
-}
-
-const request: Request[] = [
+const request = [
   {
     id: 1,
     dateSent: "2023-10-01",
@@ -64,10 +54,11 @@ const request: Request[] = [
 ];
 
 function FFRequest() {
-  const RequestActions = ({ request }: { request: Request }) => (
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const RequestActions = ({ request }: { request: any }) => (
     <div className="flex justify-end gap-2">
       <Button variant="ghost" size="icon" className="h-8 w-8">
-        <Link href={`/ff/request/${request.id}`}>
+        <Link href="/ff/request/">
           <Eye className="h-4 w-4" />
           <span className="sr-only">View</span>
         </Link>

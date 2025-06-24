@@ -9,13 +9,7 @@ export default function DocumentsTab() {
       {/* Documents Section */}
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-4">
-          <Image
-            src="/icons/info.svg"
-            alt=""
-            width={20}
-            height={20}
-            className="text-[#000]"
-          />
+          <img src="/icons/info.svg" alt="" className="w-5 h-5 text-[#000]" />
           <span className="text-[#000] font-semibold">Shipment Details</span>
         </div>
 
@@ -56,13 +50,7 @@ export default function DocumentsTab() {
 
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-4">
-            <Image
-              src="/icons/info.svg"
-              alt=""
-              width={20}
-              height={20}
-              className="text-[#000]"
-            />
+            <img src="/icons/info.svg" alt="" className="w-5 h-5 text-[#000]" />
             <span className="text-[#000] font-semibold">Other Documents</span>
           </div>
 

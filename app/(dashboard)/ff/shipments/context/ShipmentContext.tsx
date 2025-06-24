@@ -7,13 +7,13 @@ import {
   useEffect,
   type ReactNode,
 } from "react";
-import { ShipmentData, TimelineItemType, VendorPayment } from "../types";
+import { ShipmentData, TimelineItemType } from "../types";
 import { shipmentApi } from "../services/shipmentApi";
 
 interface ShipmentContextType {
   shipmentData: ShipmentData;
   timelineData: TimelineItemType[];
-  vendorPayments: VendorPayment[];
+  vendorPayments: any[];
   loading: boolean;
   error: string | null;
   handleRecordPayment: () => void;
@@ -41,7 +41,7 @@ export function ShipmentProvider({ children }: { children: ReactNode }) {
     services: [],
   });
   const [timelineData, setTimelineData] = useState<TimelineItemType[]>([]);
-  const [vendorPayments, setVendorPayments] = useState<VendorPayment[]>([]);
+  const [vendorPayments, setVendorPayments] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -125,12 +125,12 @@ export function ShipmentProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useShipmentContext() {
+export function useShipment() {
   const context = useContext(ShipmentContext);
   if (context === undefined) {
-    throw new Error(
-      "useShipmentContext must be used within a ShipmentProvider"
-    );
+    throw new Error("useShipment must be used within a ShipmentProvider");
   }
   return context;
 }
+
+export { ShipmentContext };
