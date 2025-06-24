@@ -60,7 +60,7 @@ export const mockTimelineData: TimelineItemType[] = [
     time: "15:00",
     status: "Goods delivered to consignee",
     location: "Nairobi, Kenya",
-    isLatest: true,
+    isLast: true,
   },
 ];
 

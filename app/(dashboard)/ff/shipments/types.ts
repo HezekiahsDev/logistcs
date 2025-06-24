@@ -36,7 +36,10 @@ export interface TimelineItemType {
   time: string;
   status: string;
   location: string;
-  isLatest?: boolean;
+  isLast?: boolean;
+  hasAction?: boolean;
+  title?: string;
+  active?: boolean;
 }
 
 export type TabType = "Invoices" | "Documents" | "Timeline" | "Overview";

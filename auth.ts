@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import NextAuth, { Session } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import type { JWT } from "next-auth/jwt";
@@ -124,17 +125,24 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       user,
     }: {
       token: JWT;
-      user?: CustomUser;
+      user?: any;
+      account?: any;
+      profile?: any;
+      isNewUser?: boolean;
+      trigger?: "signIn" | "signUp" | "update";
+      session?: any;
     }): Promise<JWT> {
       if (user) {
+        // Support both CustomUser and NextAuth User/AdapterUser
         return {
           ...token,
-          accessToken: user.accessToken,
-          refreshToken: user.refreshToken,
-          accessTokenExpires: user.accessTokenExpires,
-          id: user.id,
-          username: user.username,
-          role: user.role,
+          accessToken: user.accessToken ?? token.accessToken,
+          refreshToken: user.refreshToken ?? token.refreshToken,
+          accessTokenExpires:
+            user.accessTokenExpires ?? token.accessTokenExpires,
+          id: user.id ?? token.id,
+          username: user.username ?? token.username,
+          role: user.role ?? token.role,
         };
       }
 

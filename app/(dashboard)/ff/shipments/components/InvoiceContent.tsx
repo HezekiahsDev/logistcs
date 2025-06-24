@@ -1,28 +1,28 @@
-"use client"
+"use client";
 
-import { FileText } from "lucide-react"
-import { useState } from "react"
-import { TimelineItem } from "./TimelineItem"
-import { ShipmentData, TimelineItemType } from "../types"
-import { MakePaymentModal, RecordPaymentModal } from "../modals/PaymentModal"
+import { FileText } from "lucide-react";
+import { useState } from "react";
+import { TimelineItem } from "./TimelineItem";
+import { ShipmentData, TimelineItemType } from "../types";
+import { MakePaymentModal, RecordPaymentModal } from "../modals/PaymentModal";
 
 // Import the PaymentFormData type from PaymentModal
 interface PaymentFormData {
-  paymentType?: string
-  amountPaid?: string
-  email?: string
-  cardNumber?: string
-  expiry?: string
-  cvc?: string
-  rememberMe?: boolean
+  paymentType?: string;
+  amountPaid?: string;
+  email?: string;
+  cardNumber?: string;
+  expiry?: string;
+  cvc?: string;
+  rememberMe?: boolean;
 }
 
 interface InvoiceContentProps {
-  data: ShipmentData
-  timelineData: TimelineItemType[]
-  onRecordPayment: () => void
-  onMakePayment: () => void
-  onViewQuoteDetails: () => void
+  data: ShipmentData;
+  timelineData: TimelineItemType[];
+  onRecordPayment: () => void;
+  onMakePayment: () => void;
+  onViewQuoteDetails: () => void;
 }
 
 export function InvoiceContent({
@@ -32,18 +32,18 @@ export function InvoiceContent({
   onMakePayment,
   onViewQuoteDetails,
 }: InvoiceContentProps) {
-  const [isRecordPaymentOpen, setIsRecordPaymentOpen] = useState(false)
-  const [isMakePaymentOpen, setIsMakePaymentOpen] = useState(false)
+  const [isRecordPaymentOpen, setIsRecordPaymentOpen] = useState(false);
+  const [isMakePaymentOpen, setIsMakePaymentOpen] = useState(false);
 
   const handleRecordPayment = (data: PaymentFormData) => {
-    console.log("Record payment:", data)
-    onRecordPayment()
-  }
+    console.log("Record payment:", data);
+    onRecordPayment();
+  };
 
   const handleMakePayment = (data: PaymentFormData) => {
-    console.log("Make payment:", data)
-    onMakePayment()
-  }
+    console.log("Make payment:", data);
+    onMakePayment();
+  };
 
   return (
     <div className="flex gap-8">
@@ -55,11 +55,15 @@ export function InvoiceContent({
 
         <div className="mb-6">
           <div className="text-[#969ba0] text-sm mb-1">Recipient</div>
-          <div className="text-[#1e1e1e] font-semibold text-lg">{data.recipient}</div>
+          <div className="text-[#1e1e1e] font-semibold text-lg">
+            {data.recipient}
+          </div>
         </div>
 
         <div className="border-b border-[#e1e5ea] pb-4 mb-4">
-          <h3 className="text-[#1e1e1e] font-semibold text-lg mb-1">{data.importDetails}</h3>
+          <h3 className="text-[#1e1e1e] font-semibold text-lg mb-1">
+            {data.importDetails}
+          </h3>
         </div>
 
         <div className="flex justify-between mb-4">
@@ -68,7 +72,9 @@ export function InvoiceContent({
         </div>
 
         <div className="flex justify-between mb-4">
-          <div className="text-[#1e1e1e] font-semibold text-lg">{data.insurancePolicy}</div>
+          <div className="text-[#1e1e1e] font-semibold text-lg">
+            {data.insurancePolicy}
+          </div>
           <div className="font-semibold text-[#1e1e1e]">{data.invoiceId}</div>
         </div>
 
@@ -78,7 +84,10 @@ export function InvoiceContent({
         </div>
 
         {data.services.map((service, index) => (
-          <div key={index} className="flex justify-between items-center py-4 border-b border-[#e1e5ea]">
+          <div
+            key={index}
+            className="flex justify-between items-center py-4 border-b border-[#e1e5ea]"
+          >
             <div className="text-[#464255]">{service.name}</div>
             <div className="font-semibold text-[#1e1e1e]">{service.amount}</div>
           </div>
@@ -103,7 +112,9 @@ export function InvoiceContent({
       {/* Quote Timeline - Only shown for Invoices tab */}
       <div className="w-80 bg-[#8BC5E326] border-l border-[#e1e5ea]">
         <div className="p-6">
-          <h3 className="text-[#1e1e1e] font-bold text-lg mb-6">Quote Timeline</h3>
+          <h3 className="text-[#1e1e1e] font-bold text-lg mb-6">
+            Quote Timeline
+          </h3>
 
           <div className="relative">
             {/* Timeline Line */}
@@ -113,11 +124,11 @@ export function InvoiceContent({
             {timelineData.map((item, index) => (
               <TimelineItem
                 key={index}
-                title={item.title}
+                title={item.title ?? ""}
                 time={item.time}
-                active={item.active}
-                hasAction={item.hasAction}
-                isLast={item.isLast}
+                active={item.active ?? false}
+                hasAction={item.hasAction ?? false}
+                isLast={item.isLast ?? false}
                 onActionClick={item.hasAction ? onViewQuoteDetails : undefined}
               />
             ))}
@@ -136,5 +147,5 @@ export function InvoiceContent({
         onSubmit={handleMakePayment}
       />
     </div>
-  )
+  );
 }

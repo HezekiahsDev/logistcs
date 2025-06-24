@@ -4,7 +4,6 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import {
-  AddVendorHeader,
   AddVendorSideNav,
   AddVendorDetailsForm,
   AddVendorFinanceForm,
@@ -110,7 +109,6 @@ const AddVendorPage = () => {
 
   return (
     <>
-      <AddVendorHeader />
       <div className="flex h-[90vh]">
         <div className="w-[400px] shrink-0">
           <AddVendorSideNav
