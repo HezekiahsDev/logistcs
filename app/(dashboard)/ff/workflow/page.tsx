@@ -58,6 +58,7 @@ export default function WorkflowUI() {
     premium_support: false,
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const updateFormData = (field: keyof WorkflowFormData, value: any) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
