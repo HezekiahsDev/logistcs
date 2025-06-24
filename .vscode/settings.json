@@ -1,0 +1,7 @@
+{
+  "editor.fontSize": 18,
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": true,
+  "editor.inlayHints.fontSize": 0
+}
