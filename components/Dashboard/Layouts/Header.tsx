@@ -191,7 +191,7 @@ function Header({
             >
               <Image
                 src={"/placeholder.svg?height=32&width=32"}
-                alt={username}
+                alt={username ?? "User Avatar"}
                 width={32}
                 height={32}
                 className="h-8 w-8 rounded-full object-cover ring-2 ring-gray-200"
