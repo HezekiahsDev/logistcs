@@ -29,7 +29,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { toast } from "sonner";
-import { useSession } from "next-auth/react";
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
