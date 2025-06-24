@@ -1,4 +1,6 @@
-"use client"
+"use client";
+
+import Image from "next/image";
 
 export default function ShipmentOverview() {
   return (
@@ -6,7 +8,7 @@ export default function ShipmentOverview() {
       <div className="col-span-2">
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-4">
-            <img src="/icons/info.svg" alt="" />
+            <Image src="/icons/info.svg" alt="" width={24} height={24} />
             <h3 className="text-[#000000] text-lg">Commodity Info</h3>
           </div>
 
@@ -35,7 +37,7 @@ export default function ShipmentOverview() {
 
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <img src="/icons/info.svg" alt="" />
+            <Image src="/icons/info.svg" alt="" width={24} height={24} />
             <h3 className="text-[#000000] text-lg">Cargo Info</h3>
           </div>
 
@@ -47,7 +49,9 @@ export default function ShipmentOverview() {
       </div>
 
       <div className="bg-[#C0DBFB5E] rounded-lg p-6">
-        <h3 className="font-bold text-lg text-[#1e1e1e] mb-6">Logistics Steps</h3>
+        <h3 className="font-bold text-lg text-[#1e1e1e] mb-6">
+          Logistics Steps
+        </h3>
 
         <div className="relative">
           {/* Timeline line */}
@@ -62,7 +66,9 @@ export default function ShipmentOverview() {
                 </div>
               </div>
               <div>
-                <h4 className="font-semibold text-[#1e1e1e]">Logistics Step Name</h4>
+                <h4 className="font-semibold text-[#1e1e1e]">
+                  Logistics Step Name
+                </h4>
                 <p className="text-sm text-[#969ba0]">Step Description</p>
               </div>
               <div className="ml-auto">
@@ -77,7 +83,9 @@ export default function ShipmentOverview() {
                 </div>
               </div>
               <div>
-                <h4 className="font-semibold text-[#1e1e1e]">Logistics Step Name</h4>
+                <h4 className="font-semibold text-[#1e1e1e]">
+                  Logistics Step Name
+                </h4>
                 <p className="text-sm text-[#969ba0]">Step Description</p>
               </div>
               <div className="ml-auto">
@@ -92,7 +100,9 @@ export default function ShipmentOverview() {
                 </div>
               </div>
               <div>
-                <h4 className="font-semibold text-[#1e1e1e]">Logistics Step Name</h4>
+                <h4 className="font-semibold text-[#1e1e1e]">
+                  Logistics Step Name
+                </h4>
                 <p className="text-sm text-[#969ba0]">Step Description</p>
               </div>
             </div>
@@ -104,7 +114,9 @@ export default function ShipmentOverview() {
                 </div>
               </div>
               <div>
-                <h4 className="font-semibold text-[#1e1e1e]">Logistics Step Name</h4>
+                <h4 className="font-semibold text-[#1e1e1e]">
+                  Logistics Step Name
+                </h4>
                 <p className="text-sm text-[#969ba0]">11:25 AM</p>
               </div>
             </div>
@@ -112,5 +124,5 @@ export default function ShipmentOverview() {
         </div>
       </div>
     </div>
-  )
+  );
 }

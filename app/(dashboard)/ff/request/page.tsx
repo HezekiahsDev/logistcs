@@ -29,7 +29,18 @@ import MultiStepDialog from "./muilti-steps";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 
-const request = [
+interface Request {
+  id: number;
+  dateSent: string;
+  originPort: string;
+  destinationPort: string;
+  requester: string;
+  commodity: string;
+  shipmentType: string;
+  mode: string;
+}
+
+const request: Request[] = [
   {
     id: 1,
     dateSent: "2023-10-01",
@@ -53,10 +64,10 @@ const request = [
 ];
 
 function FFRequest() {
-  const RequestActions = ({ request }: { request: any }) => (
+  const RequestActions = ({ request }: { request: Request }) => (
     <div className="flex justify-end gap-2">
       <Button variant="ghost" size="icon" className="h-8 w-8">
-        <Link href="/ff/request/">
+        <Link href={`/ff/request/${request.id}`}>
           <Eye className="h-4 w-4" />
           <span className="sr-only">View</span>
         </Link>

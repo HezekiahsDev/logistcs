@@ -15,13 +15,11 @@ import {
   Select,
   SelectContent,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { FileUploadField } from "./file-upload-field";
 import { CommoditySection } from "./commodity-section";
@@ -39,6 +37,14 @@ type SelectedFiles = {
   packingList: File | null;
   billOfLading: File | null;
 };
+
+interface Commodity {
+  id: string;
+  type: string;
+  weight: string;
+  value: string;
+  description: string;
+}
 
 export default function MultiStepDialog() {
   const [currentStep, setCurrentStep] = useState(0);
