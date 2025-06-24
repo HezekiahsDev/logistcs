@@ -2,7 +2,17 @@
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
-const CommoditySection = ({ formData, setFormData }: any) => {
+interface CommodityFormData {
+  shipper: string;
+  consignee: string;
+}
+
+interface CommoditySectionProps {
+  formData: CommodityFormData;
+  setFormData: (formData: CommodityFormData) => void;
+}
+
+const CommoditySection = ({ formData, setFormData }: CommoditySectionProps) => {
   return (
     <div className="grid gap-4">
       <div>

@@ -3,7 +3,12 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useRef } from "react";
 
-const UploadDocsStep = ({ formData, setFormData }: any) => {
+interface UploadDocsStepProps {
+  formData: Record<string, unknown>;
+  setFormData: (data: Record<string, unknown>) => void;
+}
+
+const UploadDocsStep = ({ formData, setFormData }: UploadDocsStepProps) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
